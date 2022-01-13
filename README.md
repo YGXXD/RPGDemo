@@ -5,8 +5,7 @@ Unreal引擎开发的RPGDemo项目源代码
 
 技能系统：继承AbilityBase的子类可重写三个函数，AbilityStart，AbilityTick，AbilityEnd，效果实现重写接口AbilityDamageInterface。
 	技能与玩家交互用AbilityComponent组件，详情查看源码。  
-技能组件实现：Source/RPG/AbilitySystem/Component/AbilityComponent.h
-
+技能组件实现：Source/RPG/AbilitySystem/Component/AbilityComponent.h  
 技能父类：Source/RPG/AbilitySystem/Actor/AbilityBase.h
 
 
