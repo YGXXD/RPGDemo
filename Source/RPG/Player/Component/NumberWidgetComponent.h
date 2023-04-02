@@ -14,7 +14,7 @@ UCLASS()
 class RPG_API UNumberWidgetComponent : public UWidgetComponent
 {
 	GENERATED_BODY()
-
+	
 	UFUNCTION()
 	void DelayDestroy();
 public:

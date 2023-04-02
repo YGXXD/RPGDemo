@@ -71,8 +71,6 @@ ARPGameCharacter::ARPGameCharacter(const FObjectInitializer& ObjectInitializer)
 	SwordComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SwordComp"));
 	SwordComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);;
 	SwordComp->SetupAttachment(GetMesh());
-	SwordComp->AttachToComponent(GetMesh(),FAttachmentTransformRules(EAttachmentRule::KeepRelative,EAttachmentRule::KeepRelative,EAttachmentRule::KeepRelative,true),
-		TEXT("hand_rSocket"));
 	SwordComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	SwordComp->SetOnlyOwnerSee(true);
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> SwordMesh(TEXT("/Game/RPG_Game/Character/SwordMan/mesh/Sword"));
@@ -175,6 +173,9 @@ void ARPGameCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	InitializeCharacter();
+	//添加插槽这里在编辑器启动时会报错
+	SwordComp->AttachToComponent(GetMesh(),FAttachmentTransformRules(EAttachmentRule::KeepRelative,EAttachmentRule::KeepRelative,EAttachmentRule::KeepRelative,true),
+		TEXT("hand_rSocket"));
 	PLAY_MONTAGE(GetMesh(),TEXT("AnimMontage'/Game/RPG_Game/Character/SwordMan/Animation/Anim/AM_SwordMan_Equip.AM_SwordMan_Equip'"));
 }
 
